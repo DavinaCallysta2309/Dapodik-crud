@@ -1,0 +1,73 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Daftar Contact</h2>
+
+            <a href="/contact/add" class="btn btn-primary mb-2">Tambah Data contact</a>
+
+            <% if (msg.length !== 0) { %>
+              <div class="alert alert-secondary" role="alert">
+                <%= msg %>
+              </div>
+            <% } %>
+
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">jenis kelamin</th>
+                    <th scope="col">Nisn</th>
+                    <th scope="col">Nik</th>
+                    <th scope="col">No kk</th>
+                    <th scope="col">Tingkat</th>
+                    <th scope="col">Rombel</th>
+                    <th scope="col">Tanggal masuk</th>
+                    <th scope="col">Terdaftar</th>
+                    <th scope="col">Tanggal lahir</th>
+                    <th scope="col">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <% if (contacts.length === 0) { %>
+                    <tr>
+                      <td colspan="4">
+                        <div class="alert alert-secondary fw-bold" role="alert">
+                          Data contact masih kosong.
+                        </div> 
+                      </td>
+                    </tr>
+                  <% } %>
+                  
+                <% contacts.forEach((contact, i) => { %>
+                  <tr>
+                    <th scope="row"><%= i + 1 %></th>
+                    <td><%= contact.nama %></td>
+                    <td><%= contact.jk %></td>
+                    <td><%= contact.nisn %></td>
+                    <td><%= contact.nik %></td>
+                    <td><%= contact.nokk %></td>
+                    <td><%= contact.tingkat %></td>
+                    <td><%= contact.rombel %></td>
+                    <td>
+                      <% if (contact.tgl_masuk === 'Tanggal tidak valid' || contact.tgl_masuk === 'Tanggal kosong') { %>
+                        <%= contact.tgl_masuk %>
+                      <% } else { %>
+                        <%= contact.tgl_masuk %>
+                      <% } %>
+                    </td>                    
+                    <td><%= contact.terdaftar %></td>
+                    <td><%= contact.ttl %></td>
+                    <td>
+                      <a href="/contact/edit/<%= contact.nisn %>" class="btn btn-info badge">Edit</a>
+                      <a href="/contact/delete/<%= contact.nisn %>" class="btn btn-danger badge" onclick="return confirm('apakah yakin ingin dihapus');">Hapus</a>
+                  </tr>
+                <% }) %>
+                
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

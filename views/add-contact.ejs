@@ -1,0 +1,84 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h2><strong>Form isi data</strong></h2>
+
+            <% if (typeof errors != 'undefined') { %>
+                <div class="alert alert-secondary" role="alert">
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error.msg %></li>
+                         
+                        <% }) %>
+                    </ul>
+                  </div>
+                  
+            <% } %>
+            <form method="post" action="/contact">
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama" name="nama" required>
+                </div>
+                <div class="mb-3">
+                  <label for="jk" class="form-label">Jenis kelamin</label>
+                  <select class="form-select" name="jk" id="jk">
+                    <option value="L">laki laki</option>
+                    <option value="P">Perempuan</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="nisn" class="form-label">NISN</label>
+                  <input type="text" class="form-control" id="nisn" name="nisn" required>
+                </div>
+                <div class="mb-3">
+                  <label for="nik" class="form-label">NIK</label>
+                  <input type="text" class="form-control" id="nik" name="nik" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="nokk" class="form-label">No KK</label>
+                  <input type="text" class="form-control" id="nokk" name="nokk" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="tingkat" class="form-label">Tingkat</label>
+                  <select class="form-select" name="tingkat" id="tingkat" required>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="rombel" class="form-label">Rombel</label>
+                  <select class="form-select" name="rombel" id="rombel" required>
+                    <option value="PPLG 1">PPLG 1</option>
+                    <option value="PPLG 2">PPLG 2</option>
+                    <option value="RPL 1">RPL 1</option>
+                    <option value="RPL 2">RPL 2</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="tgl_masuk" class="form-label">Tanggal masuk</label>
+                  <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk" max="2024-12-06" required>
+                </div>
+
+                <div class="mb-3">
+                  <label for="terdaftar" class="form-label">Terdaftar</label>
+                  <select class="form-select" name="terdaftar" id="terdaftar" required>
+                    <option value="Siswa baru">Siswa baru</option>
+                    <option value="Pindahan">Pindahan</option>
+                  </select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="ttl" class="form-label">Tanggal lahir</label>
+                  <input type="text" class="form-control" id="ttl" name="ttl" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Tambah data contact</button>
+              </form>
+        </div>
+    </div>
+</div>
